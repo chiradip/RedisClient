@@ -14,16 +14,20 @@ import scala.concurrent._
 import ExecutionContext.Implicits.global
 import scala.util.{Success, Failure}
 
+import org.slf4j._
+
 class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
+  private val log = LoggerFactory.getLogger(getClass)
   val socket = new Socket(host, port)
   val out = new PrintWriter(socket.getOutputStream, true)
+  log.debug(s"selecting Redis index: $idx")
   if(idx!=0)
     send(s"USE $idx")
 
   val in = new BufferedReader(new InputStreamReader(socket.getInputStream))
 
   def send(command: String): Future[String] = {
-    out.println(command)
+    log.debug(command)
     val sb = new StringBuilder(1)
 
     future {
@@ -31,12 +35,12 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
         sb+in.read.asInstanceOf[Char]
       }
       val string = sb.toString()
-      println(s""" $string """)
+      log.debug(s""" $string """)
       val l = string.split("\r\n").toList
       val list = l.filter(s=> !s.startsWith("$"))
 
       val finalString = decode(list).mkString("\n")
-      println(finalString)
+      log.debug(finalString)
       finalString
       //string
     }
@@ -57,15 +61,15 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
 
       val firstSlice = list.slice(0,lastIndex)
 
-      println("firstSlice: " + firstSlice.mkString(" || "))
+      log.debug("firstSlice: " + firstSlice.mkString(" || "))
 
       val secondSlice = list.slice(lastIndex+1, lastIndex + 1 + numElems)
 
-      println("2ndSlice: " + secondSlice.mkString(" || "))
+      log.debug("2ndSlice: " + secondSlice.mkString(" || "))
       
       val thirdSlice = list.slice(lastIndex + 2 + numElems, list.length)
 
-      println("3rdSlice: " + thirdSlice.mkString(" || "))
+      log.debug("3rdSlice: " + thirdSlice.mkString(" || "))
 
       val innerStr = "{[" + secondSlice.mkString(", ") + "]}"
 
@@ -75,8 +79,6 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
     }
   }
 
-  case class RedisClientException(exc: Exception)
-
   def handleResponse(f: Future[String], fun: Any => Any) {
     f onComplete {
       case Success(resp) => fun(resp)
@@ -84,4 +86,6 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
     }
   }
 }
+
+case class RedisClientException(exc: Exception)
 
