@@ -16,5 +16,16 @@ run compile command from sbt shell
 
 <pre>
 SBT> compile 
-SBT>console
+SBT> console
+scala> :paste
+val c = new RedisClient()
+
+val f = c.send("GET key1")
+
+f onComplete {
+  case Success(resp) => println(resp)
+  case Failure(t) => { println("Something failed"); t.getMessage()}
+}
 </pre>
+
+And watch it yourself :) 
