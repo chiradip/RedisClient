@@ -84,7 +84,7 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
   def handleResponse(f: Future[String], fun: Any => Any) {
     f onComplete {
       case Success(resp) => fun(resp)
-      case Failure(t) => t.getMessage
+      case Failure(t) => log.error(t.getMessage)
     }
   }
 }
