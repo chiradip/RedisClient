@@ -1,4 +1,4 @@
-RedisClient
+com.chiradip.rediscl.RedisClient
 ===========
 
 A no nonsense Redis Client using pure scala
@@ -10,7 +10,7 @@ dependency. Users need not know about any special APIs but know about Redis comm
 Philosophically converting CLI based interation or dynamic typed style into static is sort of like going backward. 
 This library preserves that dynamic nature of Redis protocol and CLI. It adds asynchronous behavior on top of it without altering Redis single-threaded behavior. That means - your Scala/Java application can do other stuffs while Redis is processing the command(s) sent to it, and once Redis sends the response back, the future gets returned and canbe used by the calling client.
 
-To run the program quickly - do a git clone and change to directory RedisClient and run sbt - make sure you have sbt 0.12 or higher.
+To run the program quickly - do a git clone and change to directory com.chiradip.rediscl.RedisClient and run sbt - make sure you have sbt 0.12 or higher.
 
 run compile command from sbt shell
 
@@ -27,7 +27,7 @@ You need the above lines in order to run it from sbt/scala console.
 
 <pre>
 scala> :paste
-val c = new RedisClient()
+val c = new com.chiradip.rediscl.RedisClient()
 
 val f = c.send("GET key1")
 

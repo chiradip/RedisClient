@@ -1,11 +1,12 @@
+package com.chiradip.rediscl
+
 /**
  * Created with IntelliJ IDEA.
  * User: chiradip
- * Date: 4/5/14
- * Time: 10:20 PM
+ * Date: 4/9/14
+ * Time: 1:10 AM
  * To change this template use File | Settings | File Templates.
  */
-
 
 import java.net.Socket
 import java.io._
@@ -66,7 +67,7 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
       val secondSlice = list.slice(lastIndex+1, lastIndex + 1 + numElems)
 
       log.debug("2ndSlice: " + secondSlice.mkString(" || "))
-      
+
       val thirdSlice = list.slice(lastIndex + 2 + numElems, list.length)
 
       log.debug("3rdSlice: " + thirdSlice.mkString(" || "))
@@ -74,7 +75,7 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
       val innerStr = "{[" + secondSlice.mkString(", ") + "]}"
 
       val finalList = firstSlice ::: (innerStr :: thirdSlice)
-      
+
       decode(finalList)
     }
   }
@@ -88,4 +89,3 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
 }
 
 case class RedisClientException(exc: Exception)
-

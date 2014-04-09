@@ -1,4 +1,4 @@
-name := "RedisClient"
+name := "com.chiradip.rediscl.RedisClient"
 
 version := "0.8"
 
