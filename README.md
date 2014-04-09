@@ -9,3 +9,9 @@ and get simple and pure Redis response. Very simple but powerful Scala based Red
 dependency. Users need not know about any special APIs but know about Redis commands and its responses - thats it. 
 Philosophically converting CLI based interation or dynamic typed style into static is sort of like going backward. 
 This library preserves that dynamic nature of Redis protocol and CLI. It adds asynchronous behavior on top of it without altering Redis single-threaded behavior. That means - your Scala/Java application can do other stuffs while Redis is processing the command(s) sent to it, and once Redis sends the response back, the future gets returned and canbe used by the calling client.
+
+To run the program quickly - do a git clone and change to directory RedisClient and run sbt - make sure you have sbt 0.12 or higher.
+
+run compile command from sbt shell
+
+<code>SBT>compile</code>
