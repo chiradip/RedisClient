@@ -14,4 +14,7 @@ To run the program quickly - do a git clone and change to directory RedisClient 
 
 run compile command from sbt shell
 
-<code>SBT>compile</code>
+<code>
+SBT> compile
+SBT>console
+</code>
