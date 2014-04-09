@@ -21,14 +21,15 @@ class RedisClient(host: String = "127.0.0.1", port: Int = 6379, idx: Int = 0) {
   private val log = LoggerFactory.getLogger(getClass)
   val socket = new Socket(host, port)
   val out = new PrintWriter(socket.getOutputStream, true)
+
+  val in = new BufferedReader(new InputStreamReader(socket.getInputStream))
+
   log.debug(s"selecting Redis index: $idx")
   if(idx!=0)
     send(s"USE $idx")
 
-  val in = new BufferedReader(new InputStreamReader(socket.getInputStream))
-
   def send(command: String): Future[String] = {
-    log.debug(command)
+    out.println(command)
     val sb = new StringBuilder(1)
 
     future {
