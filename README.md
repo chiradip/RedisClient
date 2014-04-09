@@ -33,7 +33,7 @@ And watch it yourself :)
 Also look at this optional helper function 
 
 <pre>
-def handleResponse(f: Future[String], fun: Any => Any) {
+  def handleResponse(f: Future[String], fun: Any => Any) {
     f onComplete {
       case Success(resp) => fun(resp)
       case Failure(t) => t.getMessage
