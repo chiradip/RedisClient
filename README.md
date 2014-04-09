@@ -18,6 +18,15 @@ run compile command from sbt shell
 SBT> compile 
 SBT> console
 scala> :paste
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+import scala.util.{Success, Failure}
+</pre>
+
+You need the above lines in order to run it from sbt/scala console. 
+
+<pre>
+scala> :paste
 val c = new RedisClient()
 
 val f = c.send("GET key1")
