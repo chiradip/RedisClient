@@ -52,7 +52,6 @@ Think about passing a function which sends the string received as the parameter 
 
 An example of using <code>handleResponse</code>
 
-<pre>
-scala> c.handleResponse(f, println)
-</pre>
+
+    scala> c.handleResponse(f, println)
 
