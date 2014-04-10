@@ -26,16 +26,16 @@ import scala.util.{Success, Failure}
 You need the above lines in order to run it from sbt/scala console. 
 
 ::
-scala> :paste
-val c = new com.chiradip.rediscl.RedisClient()
+  scala> :paste
+  val c = new com.chiradip.rediscl.RedisClient()
+  
+  val f = c.send("GET key1")
+  
+  f onComplete {
+    case Success(resp) => println(resp)
+    case Failure(t) => { println("Something failed"); t.getMessage()}
+  }
 
-val f = c.send("GET key1")
-
-f onComplete {
-  case Success(resp) => println(resp)
-  case Failure(t) => { println("Something failed"); t.getMessage()}
-}
-::
 
 And watch it yourself :) 
 
