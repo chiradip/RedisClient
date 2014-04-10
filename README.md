@@ -26,6 +26,7 @@ import scala.util.{Success, Failure}
 You need the above lines in order to run it from sbt/scala console. 
 
 ::
+    
     scala> :paste
     val c = new com.chiradip.rediscl.RedisClient()
     
