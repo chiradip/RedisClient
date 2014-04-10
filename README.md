@@ -14,18 +14,15 @@ To run the program quickly - do a git clone and change to directory com.chiradip
 
 run compile command from sbt shell
 
-<pre>
-SBT> compile 
-SBT> console
-scala> :paste
-import scala.concurrent._
-import ExecutionContext.Implicits.global
-import scala.util.{Success, Failure}
-</pre>
+    SBT> compile 
+    SBT> console
+    scala> :paste
+    import scala.concurrent._
+    import ExecutionContext.Implicits.global
+    import scala.util.{Success, Failure}
+
 
 You need the above lines in order to run it from sbt/scala console. 
-
-::
     
     scala> :paste
     val c = new com.chiradip.rediscl.RedisClient()
