@@ -25,7 +25,7 @@ import scala.util.{Success, Failure}
 
 You need the above lines in order to run it from sbt/scala console. 
 
-<pre>
+::
 scala> :paste
 val c = new com.chiradip.rediscl.RedisClient()
 
@@ -35,7 +35,7 @@ f onComplete {
   case Success(resp) => println(resp)
   case Failure(t) => { println("Something failed"); t.getMessage()}
 }
-</pre>
+::
 
 And watch it yourself :) 
 
