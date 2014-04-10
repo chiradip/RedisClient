@@ -1,5 +1,5 @@
-com.chiradip.rediscl.RedisClient
-===========
+Scala RedisClient
+=================
 
 A no nonsense Redis Client using pure scala
 
