@@ -42,14 +42,14 @@ And watch it yourself :)
 
 Also look at this optional helper function 
 
-<pre>
-  def handleResponse(f: Future[String], fun: Any => Any) {
-    f onComplete {
-      case Success(resp) => fun(resp)
-      case Failure(t) => t.getMessage
+
+    def handleResponse(f: Future[String], fun: Any => Any) {
+        f onComplete {
+          case Success(resp) => fun(resp)
+          case Failure(t) => t.getMessage
+        }
     }
-  }
-</pre>
+
 
 Think about passing a function which sends the string received as the parameter (of type Any) to an actor. This can be done very easily without making this library dependent on Akka. Enjoy and feel free to enrich this library as long it is kept simple and elegant.
 
