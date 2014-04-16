@@ -10,6 +10,22 @@ dependency. Users need not know about any special APIs but know about Redis comm
 Philosophically converting CLI based interation or dynamic typed style into static is sort of like going backward. 
 This library preserves that dynamic nature of Redis protocol and CLI. It adds asynchronous behavior on top of it without altering Redis single-threaded behavior. That means - your Scala/Java application can do other stuffs while Redis is processing the command(s) sent to it, and once Redis sends the response back, the future gets returned and canbe used by the calling client.
 
+You are encouraged to downlaod the project and try it by following the instructions given. If you want to just embed/use in your project here is the simple thing you need to follow.
+
+For SBT add this to build.sbt
+libraryDependencies += "com.chiradip.rediscl" % "redisclient_2.10" % "0.8"
+
+For Maven use this dependency:
+<dependency>
+  <groupId>com.chiradip.rediscl</groupId>
+  <artifactId>redisclient_2.10</artifactId>
+  <version>0.8</version>
+</dependency>
+
+
+TO try the things before you use - you are encouraged
+================================
+
 To run the program quickly - do a git clone and change to directory RedisClient and run sbt - make sure you have sbt 0.12 or higher.
 
 run compile command from sbt shell

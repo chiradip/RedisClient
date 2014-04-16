@@ -6,3 +6,6 @@
 target
 /target
 *.class
+.sbt
+.sbt/
+./sbt/*
