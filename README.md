@@ -13,14 +13,14 @@ This library preserves that dynamic nature of Redis protocol and CLI. It adds as
 You are encouraged to downlaod the project and try it by following the instructions given. If you want to just embed/use in your project here is the simple thing you need to follow.
 
 For SBT add this to build.sbt
-libraryDependencies += "com.chiradip.rediscl" % "redisclient_2.10" % "0.8"
+    libraryDependencies += "com.chiradip.rediscl" % "redisclient_2.10" % "0.8"
 
 For Maven use this dependency:
-<dependency>
-  <groupId>com.chiradip.rediscl</groupId>
-  <artifactId>redisclient_2.10</artifactId>
-  <version>0.8</version>
-</dependency>
+    <dependency>
+        <groupId>com.chiradip.rediscl</groupId>
+        <artifactId>redisclient_2.10</artifactId>
+        <version>0.8</version>
+    </dependency>
 
 
 TO try the things before you use - you are encouraged
