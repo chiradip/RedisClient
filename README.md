@@ -16,6 +16,10 @@ For SBT add this to build.sbt
 
     libraryDependencies += "com.chiradip.rediscl" % "redisclient_2.10" % "0.8"
 
+You may also need to add the repository in your build file
+
+    resolvers += "Sonatype OSS releases" at "https://oss.sonatype.org/service/local/repositories/releases/content/"
+
 For Maven use this dependency:
 
     <dependency>
@@ -23,6 +27,17 @@ For Maven use this dependency:
         <artifactId>redisclient_2.10</artifactId>
         <version>0.8</version>
     </dependency>
+
+You may want to add repository in maven like the follows:
+
+    <repositories>
+        ....
+        <repository>
+          <id>sonatype_releases</id>
+          <url>https://oss.sonatype.org/service/local/repositories/releases/content/</url>
+        </repository>
+        ....
+     </repositories>
 
 
 TO try the things before you use - you are encouraged
