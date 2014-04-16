@@ -40,7 +40,7 @@ You may want to add repository in maven like the follows:
      </repositories>
 
 
-TO try the things before you use - you are encouraged
+You are encouraged to try these before you  use in your project
 ================================
 
 To run the program quickly - do a git clone and change to directory RedisClient and run sbt - make sure you have sbt 0.12 or higher.
